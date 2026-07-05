@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>993</width>
+    <height>764</height>
+   </rect>
+  </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
     <horstretch>0</horstretch>
@@ -16,6 +24,90 @@
   </property>
   <property name="windowTitle">
    <string>BMI calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #eef2f7, stop:1 #d9e2ec);
+}
+QLabel#name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e293b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 10px;
+}
+QWidget#right_widget {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+QLabel#image {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 5px;
+}
+QDoubleSpinBox, QComboBox {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+QDoubleSpinBox:focus, QComboBox:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+QLabel {
+    color: #475569;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+QWidget#result_widget {
+    background-color: #f1f5f9;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+QLabel#result {
+    font-size: 44px;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+QLabel#state {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e293b;
+}
+QPushButton#btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+QPushButton#btn:hover {
+    background-color: #2563eb;
+}
+
+QPushButton#btn:pressed {
+    background-color: #1d4ed8;
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -46,8 +138,8 @@
         </property>
         <property name="font">
          <font>
-          <family>Comic Sans MS</family>
-          <pointsize>20</pointsize>
+          <family>Segoe UI,Arial,sans-serif</family>
+          <pointsize>-1</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -61,7 +153,7 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="leftLayout" stretch="1,1">
+       <layout class="QHBoxLayout" name="allLayout" stretch="1,1">
         <item>
          <widget class="QLabel" name="image">
           <property name="sizePolicy">
@@ -82,195 +174,230 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="rightLayout" stretch="3,4,1">
+         <layout class="QVBoxLayout" name="rightLayout" stretch="1,1">
           <item>
-           <layout class="QFormLayout" name="entryLayout">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_height">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-              <property name="text">
-               <string>Рост, м</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QDoubleSpinBox" name="height">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_weight">
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-              <property name="text">
-               <string>Вес, кг</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QDoubleSpinBox" name="weight">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_gender">
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-              <property name="text">
-               <string>Пол</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QComboBox" name="gender">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-              <item>
-               <property name="text">
-                <string>Мужской</string>
+           <widget class="QWidget" name="right_widget" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <layout class="QFormLayout" name="entryLayout">
+               <item row="0" column="1">
+                <widget class="QComboBox" name="units">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>-1</pointsize>
+                   <weight>62</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Международная (м, кг)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Имперская (футы, фунты)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QDoubleSpinBox" name="height">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>-1</pointsize>
+                   <weight>62</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QDoubleSpinBox" name="weight">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>-1</pointsize>
+                   <weight>62</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_weight">
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Вес, кг</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_height">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Рост, м</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_units">
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Система измерения</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Женский</string>
+               <property name="font">
+                <font>
+                 <family>Segoe UI,Arial,sans-serif</family>
+                 <pointsize>-1</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
                </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
+               <property name="text">
+                <string>Расчитать</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="resultLayout" stretch="1,2,2">
-            <item>
-             <widget class="QLabel" name="label_result">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-                <pointsize>12</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Результат:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="result">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>0</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignHCenter|Qt::AlignTop</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="state">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Comic Sans MS</family>
-               </font>
-              </property>
-              <property name="text">
-               <string>Дефицит массы тела</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignHCenter|Qt::AlignTop</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Comic Sans MS</family>
-             </font>
-            </property>
-            <property name="text">
-             <string>Расчитать</string>
-            </property>
+           <widget class="QWidget" name="result_widget" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <layout class="QVBoxLayout" name="resultLayout" stretch="0,0,0">
+               <item>
+                <widget class="QLabel" name="label_result">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Результат:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="result">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="state">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI,Arial,sans-serif</family>
+                   <pointsize>-1</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Дефицит массы тела</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

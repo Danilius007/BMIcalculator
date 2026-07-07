@@ -239,6 +239,9 @@ QPushButton#btn:pressed {
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="maximum">
+                  <double>599.990000000000009</double>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="0">

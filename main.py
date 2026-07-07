@@ -1,12 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from ui_main import MainWindow
 
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle('Калькулятор ИМТ')
-        self.resize(800, 600)
 
 def main():
     app = QApplication(sys.argv)

@@ -1,6 +1,9 @@
+import os
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
-
+from PyQt5.QtGui import QPixmap
+from PIL import Image
+from io import  BytesIO
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -9,6 +12,7 @@ class MainWindow(QMainWindow):
         self.btn.clicked.connect(self.calculate_bmi)
         self.units.currentIndexChanged.connect(self.change_units)
         self.set_metric_units()
+        self.set_default_image()
 
     def set_metric_units(self):
         self.height.setSingleStep(0.1)
@@ -60,3 +64,45 @@ class MainWindow(QMainWindow):
             category = 'Ожирение'
         self.result.setText(f'{bmi:.1f}')
         self.state.setText(category)
+        self.set_result_image(category)
+
+    def set_default_image(self):
+        default_image_path = 'assets/underweight.png'
+        if os.path.exists(default_image_path):
+            try:
+                img = Image.open(default_image_path)
+                img.thumbnail((236, 500), Image.Resampling.LANCZOS)
+                buffer = BytesIO()
+                img.save(buffer, format='PNG')
+                buffer.seek(0)
+                pixmap = QPixmap()
+                pixmap.loadFromData(buffer.getvalue())
+                self.image.setPixmap(pixmap)
+                return
+            except Exception as e:
+                print(f'Ошибка загрузки картинки: {e}')
+
+    def set_result_image(self, category):
+        image_map = {
+            'Дефицит массы тела': 'assets/underweight.png',
+            'Нормальный вес': 'assets/normal.png',
+            'Избыточный вес': 'assets/overweight.png',
+            'Ожирение': 'assets/obesity.png'
+        }
+        image_path = image_map.get(category, 'assets/underweight.png')
+        if os.path.exists(image_path):
+            try:
+                img = Image.open(image_path)
+                label_width = self.image.width()
+                label_height = self.image.height()
+                img.thumbnail((label_width, label_height), Image.Resampling.LANCZOS)
+                buffer = BytesIO()
+                img.save(buffer, format='PNG')
+                buffer.seek(0)
+                pixmap = QPixmap()
+                pixmap.loadFromData(buffer.getvalue())
+                self.image.setPixmap(pixmap)
+                self.image.setStyleSheet('')
+                return
+            except Exception as e:
+                print(f'Ошибка загрузки картинки: {e}')

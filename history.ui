@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>695</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>История запросов</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #eef2f7, stop:1 #d9e2ec);
+}
+QLabel#label_title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e293b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 10px;
+}
+QWidget#centralwidget {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+}
+QTableWidget {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    alternate-background-color: #f1f5f9;
+    gridline-color: #e2e8f0;
+}
+QTableWidget::item {
+    padding: 8px;
+}
+QTableWidget::item:selected {
+    background-color: #3b82f6;
+    color: white;
+}
+QHeaderView::section {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+QPushButton {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-width: 80px;
+}
+QPushButton:hover {
+    background-color: #ffffff;
+    border-color: #3b82f6;
+}
+QPushButton#btn_delete:hover {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+QPushButton#btn_clear_all:hover {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+QPushButton#btn_close:hover {
+    background-color: #e2e8f0;
+    border-color: #94a3b8;
+}
+QLabel#label_count {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px;
+}
+QStatusBar {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    padding: 5px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,4,1,0">
+      <item>
+       <widget class="QLabel" name="label_title">
+        <property name="text">
+         <string>История запросов</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="table_history">
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="columnCount">
+         <number>6</number>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Рост</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Вес</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ИМТ</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Категория</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>New Column</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Картинка</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="btn_refresh">
+          <property name="text">
+           <string>Обновить</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_delete">
+          <property name="text">
+           <string>Удалить</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_clear_all">
+          <property name="text">
+           <string>Очистить все</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_close">
+          <property name="text">
+           <string>Закрыть</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_count">
+        <property name="text">
+         <string>Всего записей: 0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

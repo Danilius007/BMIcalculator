@@ -107,7 +107,34 @@ QPushButton#btn:hover {
 QPushButton#btn:pressed {
     background-color: #1d4ed8;
 }
-</string>
+QMenuBar {
+    background-color: #1e293b;
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-bottom: 2px solid #3b82f6;
+}
+QMenuBar::item:selected {
+    background-color: #3b82f6;
+    border-radius: 6px;
+}
+QMenu {
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 8px;
+}
+QMenu::item:selected {
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 6px;
+}
+QMenu::separator {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 5px 10px;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -411,6 +438,41 @@ QPushButton#btn:pressed {
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>993</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <addaction name="action_theme"/>
+    <addaction name="action_history"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <action name="action_theme">
+   <property name="text">
+    <string>История расчетов</string>
+   </property>
+  </action>
+  <action name="action_history">
+   <property name="text">
+    <string>Сменить тему</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

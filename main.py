@@ -1,10 +1,12 @@
 import sys
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from ui_main import MainWindow
 
 
 def main():
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon('assets/icon.png'))
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())

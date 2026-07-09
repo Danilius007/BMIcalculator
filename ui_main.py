@@ -1,9 +1,9 @@
 import os
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QPushButton
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QShortcut
+from PyQt5.QtGui import QPixmap, QKeySequence
 from PIL import Image
-from io import  BytesIO
+from io import BytesIO
 from database import Database
 from ui_history import HistoryWindow
 
@@ -19,6 +19,7 @@ class MainWindow(QMainWindow):
         self.set_default_image()
         self.action_history.triggered.connect(self.open_history)
         self.action_exit.triggered.connect(self.close)
+        self.setup_shortcuts()
 
     def set_metric_units(self):
         self.height.setSingleStep(0.1)
@@ -56,11 +57,11 @@ class MainWindow(QMainWindow):
         if system == 'Международная (м, кг)':
             height_m = height_value
             weight_kg = weight_value
-            bmi = weight_kg/(height_m ** 2)
+            bmi = weight_kg / (height_m ** 2)
         else:
             height_m = height_value * 0.3048
             weight_kg = weight_value * 0.4536
-            bmi = weight_kg/(height_m ** 2)
+            bmi = weight_kg / (height_m ** 2)
         if bmi < 18.5:
             category = 'Дефицит массы тела'
         elif bmi < 25:
@@ -144,3 +145,13 @@ class MainWindow(QMainWindow):
             event.accept()
         else:
             event.ignore()
+
+    def setup_shortcuts(self):
+        shortcut_history = QShortcut(QKeySequence('Ctrl+H'), self)
+        shortcut_history.activated.connect(self.open_history)
+        self.action_history.setShortcut('Ctrl+H')
+        shortcut_exit = QShortcut(QKeySequence('Ctrl+Q'), self)
+        shortcut_exit.activated.connect(self.close)
+        self.action_exit.setShortcut('Ctrl+Q')
+        shortcut_enter = QShortcut(QKeySequence('Return'), self)
+        shortcut_enter.activated.connect(self.btn.click)

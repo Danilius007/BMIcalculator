@@ -249,6 +249,9 @@ QMenu::separator {
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="maximum">
+                  <double>999.000000000000000</double>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="1">
@@ -267,7 +270,7 @@ QMenu::separator {
                   </font>
                  </property>
                  <property name="maximum">
-                  <double>599.990000000000009</double>
+                  <double>999.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -452,7 +455,6 @@ QMenu::separator {
      <string>Меню</string>
     </property>
     <addaction name="action_history"/>
-    <addaction name="action_theme"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>

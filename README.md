@@ -67,12 +67,11 @@ python main.py
 │   ├── overweight.png
 │   └── underweight.png
 ├── database.py          # Работа с SQLite
-├── design.py            # Главное окно (сгенерировано из .ui)
-├── history.py           # Окно истории (сгенерировано из .ui)
+├── design.ui           # Главное окно
+├── history.ui          # Окно истории
 ├── main.py              # Точка входа
 ├── ui_history.py        # Логика окна истории
 ├── ui_main.py           # Логика главного окна
-├── utils.py             # Вспомогательные функции
 ├── requirements.txt
 └── README.md
 ```

@@ -451,19 +451,19 @@ QMenu::separator {
     <property name="title">
      <string>Меню</string>
     </property>
-    <addaction name="action_theme"/>
     <addaction name="action_history"/>
+    <addaction name="action_theme"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>
    <addaction name="menu"/>
   </widget>
-  <action name="action_theme">
+  <action name="action_history">
    <property name="text">
     <string>История расчетов</string>
    </property>
   </action>
-  <action name="action_history">
+  <action name="action_theme">
    <property name="text">
     <string>Сменить тему</string>
    </property>

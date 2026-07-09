@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>695</height>
+    <width>1030</width>
+    <height>643</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -133,11 +133,16 @@ QStatusBar {
          <enum>QAbstractItemView::SelectRows</enum>
         </property>
         <property name="columnCount">
-         <number>6</number>
+         <number>7</number>
         </property>
         <attribute name="horizontalHeaderStretchLastSection">
          <bool>true</bool>
         </attribute>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
         <column>
          <property name="text">
           <string>Рост</string>
@@ -160,7 +165,7 @@ QStatusBar {
         </column>
         <column>
          <property name="text">
-          <string>New Column</string>
+          <string>Дата</string>
          </property>
         </column>
         <column>

@@ -28,6 +28,8 @@
 
 ```bash
 git clone https://github.com/Danilius007/BMIcalculator.git
+```
+```bash
 cd BMIcalculator
 ```
 

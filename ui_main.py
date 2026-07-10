@@ -47,8 +47,15 @@ class MainWindow(QMainWindow):
         self.weight.setValue(0)
 
     def calculate_bmi(self):
-        height_value = self.height.value()
-        weight_value = self.weight.value()
+        try:
+            height_raw = self.height.value()
+            weight_raw = self.weight.value()
+            height_value = float(str(height_raw).replace(',','.'))
+            weight_value = float(str(weight_raw).replace(',','.'))
+        except ValueError:
+            self.result.setText('')
+            self.state.setText('Ошибка ввода')
+            return
         system = self.units.currentText()
         if height_value == 0 or weight_value == 0:
             self.result.setText('')

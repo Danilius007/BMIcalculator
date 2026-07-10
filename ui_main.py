@@ -26,6 +26,8 @@ class MainWindow(QMainWindow):
         self.weight.setSingleStep(0.1)
         self.height.setDecimals(2)
         self.weight.setDecimals(2)
+        self.height.setRange(0, 9999)
+        self.weight.setRange(0, 9999)
         self.label_height.setText('Рост, м:')
         self.label_weight.setText('Вес, кг:')
 
@@ -34,6 +36,8 @@ class MainWindow(QMainWindow):
         self.weight.setSingleStep(1)
         self.height.setDecimals(2)
         self.weight.setDecimals(0)
+        self.height.setRange(0, 9999)
+        self.weight.setRange(0, 9999)
         self.label_height.setText('Рост, футы:')
         self.label_weight.setText('Вес, фунты:')
 
@@ -50,8 +54,8 @@ class MainWindow(QMainWindow):
         try:
             height_raw = self.height.value()
             weight_raw = self.weight.value()
-            height_value = float(str(height_raw).replace(',','.'))
-            weight_value = float(str(weight_raw).replace(',','.'))
+            height_value = float(str(height_raw).replace(',', '.'))
+            weight_value = float(str(weight_raw).replace(',', '.'))
         except ValueError:
             self.result.setText('')
             self.state.setText('Ошибка ввода')
@@ -140,6 +144,16 @@ class MainWindow(QMainWindow):
         self.history_window = HistoryWindow(self)
         self.history_window.show()
 
+    def setup_shortcuts(self):
+        shortcut_history = QShortcut(QKeySequence('Ctrl+H'), self)
+        shortcut_history.activated.connect(self.open_history)
+        self.action_history.setShortcut('Ctrl+H')
+        shortcut_exit = QShortcut(QKeySequence('Ctrl+Q'), self)
+        shortcut_exit.activated.connect(self.close)
+        self.action_exit.setShortcut('Ctrl+Q')
+        shortcut_enter = QShortcut(QKeySequence('Return'), self)
+        shortcut_enter.activated.connect(self.btn.click)
+
     def closeEvent(self, event):
         reply = QMessageBox.question(
             self,
@@ -152,13 +166,3 @@ class MainWindow(QMainWindow):
             event.accept()
         else:
             event.ignore()
-
-    def setup_shortcuts(self):
-        shortcut_history = QShortcut(QKeySequence('Ctrl+H'), self)
-        shortcut_history.activated.connect(self.open_history)
-        self.action_history.setShortcut('Ctrl+H')
-        shortcut_exit = QShortcut(QKeySequence('Ctrl+Q'), self)
-        shortcut_exit.activated.connect(self.close)
-        self.action_exit.setShortcut('Ctrl+Q')
-        shortcut_enter = QShortcut(QKeySequence('Return'), self)
-        shortcut_enter.activated.connect(self.btn.click)
